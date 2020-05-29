@@ -1054,7 +1054,7 @@ refer to its www home page:
   \swedishenglish{\addcontentsline{toc}{chapter}{Acknowledgments}}
   {\addcontentsline{toc}{chapter}{Acknowledgments}}
   \cleardoublepage
-  {\pagestyle{plain}\tableofcontents\relax\clear doublepage}
+  {\pagestyle{plain}\tableofcontents\relax\cleardoublepage}
     \cleardoublepage
   \iftotalfigures {\pagestyle{plain}\listoffigures\relax\cleardoublepage}\fi
   \iftotaltables {\pagestyle{plain}\listoftables\relax\cleardoublepage}\fi

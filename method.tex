@@ -141,8 +141,14 @@ The final touch is to transform the input image to match a reference using image
 \section{Evaluation}
 The approach of this thesis is to evaluate if a combination of image processing techniques can be used to solve the problem description. The thesis problem is assumed to be solved if the criteria in \textit{Section 1.3} are fulfilled. Therefore, the basis of evaluation for this method is to examine if the workflow, shown in \textit{Figure \ref{fig:method workflow}}, can produce results that fulfill the criteria. \\
 
-THIS IS A TEST can you see the change? 
+\noindent Each processed image will be evaluated manually to check if they fulfill the criteria. The evaluation will be done by comparing the output to a template overlay, as seen in \textit{Figure \ref{fig:method evaluation}}. By checking that the compartment edges follow the red cross, representing the center of the image, perspective and positioning are assumed to be valid. The red circle validates the masking and scale of the agar plate. The rotation of the agar plate will lastly be validated based on the orientation of the red compartment in relation to the green arrow. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/PDF/Evaluation_2.pdf}\\
+    \caption{Illustrates an output with a reference template overlay.}
+    \label{fig:method evaluation}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% lorem.tex ends here

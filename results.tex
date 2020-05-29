@@ -71,7 +71,7 @@ Using a dataset of 300 images, \textit{Figure \ref{fig:result final}} is a gener
 
 \noindent The found contour was validated with an $ 80\%$ matching rate to their corresponding CHT shape. The matching rate was set a bit lower to cope with the more extreme cases. Images with a matching rate of over $ 85\%$, in this case, proved in general to provide the most accurate results.\\
 
-\noindent RANSAC was set to 100 iterations, which gave accurate results with providing the elliptical contour, as seen in \textit{Figure \ref{fig:result ransac} c)}. However, it was quite time-consuming with a computation time of up to 50 seconds.
+\noindent RANSAC was set to 100 iterations, which gave accurate results with providing the elliptical contour, as seen in \textit{Figure \ref{fig:result ransac} c)}. However, it was quite time-consuming with a computation time of up to 50 seconds (using an Intel I7-5600 2.59GHz, 8GB DDR3L 1600MHz, and 256GB SSD).
 
 
 \begin{figure}[H]
@@ -118,7 +118,7 @@ Changing the values within the HSV-space gave the most distinctive segmentation 
 
 \begin{figure}[H]
     \centering
-      \includegraphics[width=1\linewidth]{figures/PDF/Segmentation.pdf}\\
+      \includegraphics[width=.93\linewidth]{figures/PDF/Segmentation.pdf}\\
     \caption{a) Intersection points between the outer contour and the identified compartment edges. b) Segmented red compartment using color space segmentation. c) Sorted intersection points. }
     \label{fig:result segmentation}
 \end{figure}
@@ -144,20 +144,14 @@ As seen in \textit{Figure \ref{fig:result keys} a)}, key points were able to be 
 
 
 \section{Evaluation}
- \textit{Figure \ref{fig:result final}} in each step shows that the criteria in \textit{Section 1.3} are met. Therefore, the thesis statement is answered. How the implementation fulfills the criteria can be shown in \textit{Figure \ref{fig:result final}} as follows: 
- \begin{itemize}
-     \item \textit{The outer edge of the agar plate shall be identified. The compartment edges shall be identified as well. }
- \end{itemize}
-\textit{Figure \ref{fig:result final} b)} shows that Canny, Morphological Closing, Border Following, and RANSAC were successful in providing an elliptical shape around the outer contour of an agar plate. \textit{Figure \ref{fig:result final} c)} shows that the compartment edges can be identified using Canny, Morphological Closing, Skeletonize, and Hough Transform. 
-  \begin{itemize}
-     \item \textit{Pixels outside the agar plate should be masked to remove background noise.}
- \end{itemize}
- As seen in \textit{Figure \ref{fig:result final} c)}, masking proved to be consistent and any relevant noise is masked if, the outer contour of the agar plate is identified correctly.
- \textit{Figure \ref{fig:result final} c)}.. 
-  \begin{itemize}
-     \item \textit{Depending on the angle, position, and scale, the image should be adjusted to match a reference image.}
- \end{itemize}
- \textit{Figure \ref{fig:result final} d)} shows the input image in \textit{Figure \ref{fig:result final} a)} is adjusted in scale, position, perspective, and rotation based on a reference image.
+Evaluating the final output proves that the outputs were valid considering a small margin of error. \textit{Figure \ref{fig:result evaluation} a)} shows a near-perfect transformation and rotation, while the remaining outputs show slight variations compared to the overlay template. However, the variations were minimal, and the red compartment was in all cases oriented to the right according to the green arrow throughout the data set. 
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{figures/PDF/Evaluation_result.pdf}
+    \caption{Validation of final output from \textit{Figure \ref{fig:result final} d)}}
+    \label{fig:result evaluation}
+\end{figure}
+
 
 
 

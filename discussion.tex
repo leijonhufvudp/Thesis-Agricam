@@ -42,6 +42,22 @@ Overall the results look promising, with only some minor variations in perspecti
 
 \noindent The fact that the agar plate is circular, and not dependent on the background made it much more difficult to identify its orientation.  Usually, some landmark points in corners, shapes, or the background can be found, but here a color segmentation was needed as an addition to defining the rotation. \\
 
+\noindent \textit{Figure \ref{fig:result final}} in each step shows that the criteria in \textit{Section 1.3} are met. Therefore, the thesis statement is answered. How the implementation fulfills the criteria can be shown in \textit{Figure \ref{fig:result final}} as follows: 
+ \begin{itemize}
+     \item \textit{The outer edge of the agar plate shall be identified. The compartment edges shall be identified as well.}
+ \end{itemize}
+\textit{Figure \ref{fig:result final} b)} shows that Canny, Morphological Closing, Border Following, and RANSAC were successful in providing an elliptical shape around the outer contour of an agar plate. \textit{Figure \ref{fig:result final} c)} shows that the compartment edges can be identified using Canny, Morphological Closing, Skeletonize, and Hough Transform. 
+  \begin{itemize}
+     \item \textit{Pixels outside the agar plate should be masked to remove background noise.}
+ \end{itemize}
+ As seen in \textit{Figure \ref{fig:result final} c)}, masking proved to be consistent and any relevant noise is masked if, the outer contour of the agar plate is identified correctly.
+ \textit{Figure \ref{fig:result final} c)}. 
+  \begin{itemize}
+     \item \textit{Depending on the angle, position, and scale, the image should be adjusted to match a reference image.}
+ \end{itemize}
+ \textit{Figure \ref{fig:result final} d)} shows the input image in \textit{Figure \ref{fig:result final} a)} is adjusted in scale, position, perspective, and rotation based on a reference image.
+
+
 \section{Method}
 \label{sec:discussion-method}
 
@@ -49,14 +65,14 @@ The method proved to work, thus leading to good results, but could mainly be imp
 
 \noindent For example, additional validation of the Canny output in \textit{Figure \ref{fig:compartment edges flowchart}} could be implemented to validate that the compartment edges are identified, as shown in \textit{Figure \ref{fig:compartment masking} b)}. Either the contrast and brightness could be adjusted as during the validation in \textit{Figure \ref{fig:identify and mask flowchart}}; alternatively the Gaussian blur sigma adjusted depending on the situation. If this were to be successful in all cases, the Closing and Skeletonize would not be needed. Instead, the centermost part of the compartment edges could be simply calculated from the four edges identified. \\
 
-\noindent Even though using RANSAC increased the accuracy of identifying the agar plate, it proved to be very computationally expensive. However, the number of RANSAC iterations was a consequence of using parameters suitable enough for the whole dataset and could be lowered if the pre-processing was optimized. For application areas that are dependent on faster computation speed, CHT alone could be used to replace the whole \texit{Section 5.1.1.}, still producing good-enough results in cases with little to no perspective distortion.\\
+\noindent Even though using RANSAC increased the accuracy of identifying the agar plate, it proved to be relatively computationally expensive. The number of RANSAC iterations was a consequence of using parameters suitable enough for the whole dataset and could be lowered if the pre-processing was optimized. However, processing speed may only be of importance when processing larger data sets. In most cases, only a few images will need to be processed per occasion.\\
 
-\noindent Instead of processing each output multiple times, any perspective distortion could be directly calculated with the major and minor axis of the circular projection of the agar plate. The major and minor axis should then correspond to the compartment edges and the contour found in \texit{Section 4.1.1}. Ideally, this operation would reduce the need to only a single processing iteration.
+\noindent For application areas where processing speed is of the essence, the overall processing speed of larger data sets could be decreased using multi-threading, processing multiple images at once. Additionally, CHT alone could be used to replace the whole \texit{Section 5.1.1.}, still producing good-enough results in cases with little to no perspective distortion.\\
 
+\noindent Instead of processing each output multiple times, any perspective distortion could be directly calculated with the major and minor axis of the circular projection of the agar plate. The major and minor axis should then correspond to the compartment edges and the contour found in \texit{Section 4.1.1}. Ideally, this operation would reduce the need to only a single processing iteration. Alternatively, a validation of the compartment edges positioning could be done. If there still was an offset between the compartment edges of the input and the reference model, the second iteration could be initiated. \\
 
-
-
-\item 
+\noindent Lastly, the manual validation using an overlay reference template could be automated by calculating the Hu Moments. A representation of the outer contour, the compartment edges, and the rotation of each output could be constructed. The representation could then be used as a comparison to the reference template. The moment value of each representation could then be validated based on a percentage with a reasonable margin of error. 
+\newpage
 \section{The work in a wider context}
 \label{sec:work-wider-context}
 Imagining the social and ethical aspects of image processing is difficult. However, using image processing to pre-process images before being used by a bacteria classifier improves the possibility of correctly identifying the right type of bacteria. Therefore, this work could be a base to improve the input used for all types of automated bacteria classifiers using agar plates. Improving the results of automated bacteria classifiers can not only for mastitis, improve the time-consuming and lengthy diagnosis process. \\
