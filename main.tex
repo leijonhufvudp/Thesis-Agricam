@@ -1,0 +1,49 @@
+\documentclass[msc,lith,swedish]{liuthesis}
+%% Settings go in settings.tex
+\include{settings}
+\usepackage{rotating}
+\usepackage{color}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+% \usepackage{changebar}
+
+\department{Department of Computer and Information Science}
+\departmentenglish{Department of Computer and Information Science}
+\departmentshort{IDA}
+% If this is a thesis at the cognitive science study programme, use
+% the "area" command to generate a proper (?) ISRN
+% \area{KOGVET-A}
+
+% Include an external supervisor on the cover page
+% externalsupervisor{Min företagshandledare}
+\supervisor{Adrian Horga}
+\examiner{Martin Sjölund}
+\externalsupervisor{Erika Andeskär, Martin Johansson}
+\titleenglish{}
+\titleswedish{\noindent{\textwidth}
+ % \includegraphics[width=0.40\linewidth]{figures/firstpage1.jpg}\\\\
+\\\\\\\\
+ Image Processing for\\ Improved Bacteria Classification}
+\thesissubject{Computer Science}
+
+\publicationyear{2020}
+\currentyearthesisnumber{001}
+\today
+
+\author{\parbox{\textwidth}{Emil Bråkenhielm (emibr678) \\ Peder Leijonhufvud (pedle936)}}
+\begin{document}
+\chapterstyle{VZ43}
+\include{intro}
+\include{theory}
+\include{related-work}
+\include{method}
+\include{results}
+\include{discussion}
+\include{conclusion}
+\printbibliography
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% demothesis.tex ends here
+

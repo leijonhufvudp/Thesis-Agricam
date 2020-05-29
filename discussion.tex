@@ -1,0 +1,78 @@
+%%% lorem.tex --- 
+%% 
+%% Filename: lorem.tex
+%% Description: 
+%% Author: Ola Leifler
+%% Maintainer: 
+%% Created: Wed Nov 10 09:59:23 2010 (CET)
+%% Version: $Id$
+%% Version: 
+%% Last-Updated: Wed Nov 10 09:59:47 2010 (CET)
+%%           By: Ola Leifler
+%%     Update #: 2
+%% URL: 
+%% Keywords: 
+%% Compatibility: 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Commentary: 
+%% 
+%% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Change log:
+%% 
+%% 
+%% RCS $Log$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Code:
+
+\chapter{Discussion}
+\label{cha:discussion}
+This chapter discusses and analyzes the results and methods derived from the previous chapters. Additionally, the work will be put in a wider context. 
+
+\section{Results}
+\label{sec:discussion-results}
+Overall the results look promising, with only some minor variations in perspective and rotation (see examples in \textit{Figure \ref{fig:result final} d)}). The biggest reason for any output variations seems to be deviations when finding the compartment edges, essentially due to the extent of bacteria occurring, as well as their positioning. While \textit{Figure \ref{fig:result final} b)} shows nearly identical results,  \textit{Figure \ref{fig:result final} c)} shows slight variations in the positioning and angle of the identified edges. \\
+
+\noindent Using Canny with the additional blur seems to be a promising way to cope with any noise from bacteria growth. Very accurate final results were possible to produce when slightly adjusting the parameters of Dilate, Erosion, Canny, and Gaussian blur individually for each image. However, parameters were set to work with the whole dataset to provide a more generally applicable solution to the thesis problem. \\
+
+\noindent The fact that the agar plate is circular, and not dependent on the background made it much more difficult to identify its orientation.  Usually, some landmark points in corners, shapes, or the background can be found, but here a color segmentation was needed as an addition to defining the rotation. \\
+
+\section{Method}
+\label{sec:discussion-method}
+
+The method proved to work, thus leading to good results, but could mainly be improved in some aspects. \\
+
+\noindent For example, additional validation of the Canny output in \textit{Figure \ref{fig:compartment edges flowchart}} could be implemented to validate that the compartment edges are identified, as shown in \textit{Figure \ref{fig:compartment masking} b)}. Either the contrast and brightness could be adjusted as during the validation in \textit{Figure \ref{fig:identify and mask flowchart}}; alternatively the Gaussian blur sigma adjusted depending on the situation. If this were to be successful in all cases, the Closing and Skeletonize would not be needed. Instead, the centermost part of the compartment edges could be simply calculated from the four edges identified. \\
+
+\noindent Even though using RANSAC increased the accuracy of identifying the agar plate, it proved to be very computationally expensive. However, the number of RANSAC iterations was a consequence of using parameters suitable enough for the whole dataset and could be lowered if the pre-processing was optimized. For application areas that are dependent on faster computation speed, CHT alone could be used to replace the whole \texit{Section 5.1.1.}, still producing good-enough results in cases with little to no perspective distortion.\\
+
+\noindent Instead of processing each output multiple times, any perspective distortion could be directly calculated with the major and minor axis of the circular projection of the agar plate. The major and minor axis should then correspond to the compartment edges and the contour found in \texit{Section 4.1.1}. Ideally, this operation would reduce the need to only a single processing iteration.
+
+
+
+
+\item 
+\section{The work in a wider context}
+\label{sec:work-wider-context}
+Imagining the social and ethical aspects of image processing is difficult. However, using image processing to pre-process images before being used by a bacteria classifier improves the possibility of correctly identifying the right type of bacteria. Therefore, this work could be a base to improve the input used for all types of automated bacteria classifiers using agar plates. Improving the results of automated bacteria classifiers can not only for mastitis, improve the time-consuming and lengthy diagnosis process. \\
+%Öppnar upp portar för bakterie klassifierare
+%knytt ihop säcken med det som skrevs i börja av introduktionen
+ 
+%This work could be a base for all types of bacteria classifications. Improving the input images used by bacteria classifiers 
+
+
+%\item The work could be a base for all type of bacteria classification using agar plates. It is not just limited to mastitis. 
+%Talk about the ethical and social aspects related to the work. Here write about the social and ethical aspects of mastitis and its contribution to the use of antibiotics? (Maybe??)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% lorem.tex ends here
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "demothesis"
+%%% End: 

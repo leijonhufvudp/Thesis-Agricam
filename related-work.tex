@@ -1,0 +1,19 @@
+\chapter{Related Work}
+\label{cha:related work}
+This chapter addresses previous work in image processing that tries to solve similar problems this thesis does. There exist several methods on how to identify different shapes and varieties in angle, rotation, position, and scale in images. However, no study found solves a similar problem this thesis does. Therefore, this chapter focuses on related work using similar techniques written about in the theory chapter. 
+
+\section{Edge detection}
+Many recent papers have focused on Canny Edge Detection and similar techniques to detect edges in images. \cite{Genesan} did a study of different edge detection methods for various image processing applications. The same edge detection algorithm can not be applied for all types of images since edge detection methods are problem-oriented. Because it is challenging to perform edge detection in noisy images, the authors compare different edge detection methods with their advantages and limitations. Canny edge detection produced excellent results, especially under noisy conditions.\\
+
+\noindent Moreover, many recent papers have focused on improving Canny Edge Detection to detect edges in noisy images better. \cite{Nikolic} proposes an improvement by using a modified median filter instead of Gaussian smoothing. The algorithm could successfully remove, with optimal threshold values on the canny operator, noise from an ultrasound image of a kidney. \cite{Rong} suggests an adaptive threshold selection method for the Canny Edge Detection algorithm to preserve more useful edges and more robust noise.
+
+\section{Shape detection}
+In work for pupil identification, \cite{Soltany} suggests using a combination of the two techniques Canny Edge Detection and Hough Transform to detect pupils in images. The canny operator is used to identify the edge of a pupil, while Hough Transform finds the exact position. The proposed algorithm managed to accurately fit circles of different eye images under different lighting conditions. Additionally, \cite{Divya} presents an algorithm that can detect and outline the outer edge of the pupils in human eyes using Hough Transform and Canny Edge detection. The algorithm was tested on 100 human eyes and produced a 95\%  successful result.\\
+
+\noindent RANSAC is a popular method of choice for model fitting to find ellipses in images. \cite{Bozomitu} suggests an algorithm using the RANSAC procedure for pupil detection. Using RANSAC provides high accuracy with low running time in normal and noisy conditions and for variable illumination. \cite{Xie} proposes an ellipse detection method using RANSAC that achieves high accuracy and computation cost in detecting multiple ellipses in images. The algorithm works in two steps. Firstly, region segmentation and contour detection are applied. Secondly, with each contour segment found, a modified RANSAC is applied to five randomly selected pixels to form an accurate ellipse.
+
+\section{Image Registration}
+There are numerous Image registration methods, which are frequently used in medical imaging, automatic target recognition, and computer vision. \cite{Saxena} provides knowledge of different image registration methods and their use in various application areas by discussing their advantages and disadvantages. The techniques are divided into two groups, Area-based and feature-based. Feature-based techniques find correspondence in salient features in images such as lines, points, and contours. Area-based methods, however, emphasize on feature matching without the detection of salient objects.  \\
+%section{Morphological identification}
+
+%\section{Managing different shapes and perspectives in images}

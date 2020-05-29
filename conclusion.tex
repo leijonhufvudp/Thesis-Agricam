@@ -1,0 +1,58 @@
+%%% lorem.tex --- 
+%% 
+%% Filename: lorem.tex
+%% Description: 
+%% Author: Ola Leifler
+%% Maintainer: 
+%% Created: Wed Nov 10 09:59:23 2010 (CET)
+%% Version: $Id$
+%% Version: 
+%% Last-Updated: Wed Nov 10 09:59:47 2010 (CET)
+%%           By: Ola Leifler
+%%     Update #: 2
+%% URL: 
+%% Keywords: 
+%% Compatibility: 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Commentary: 
+%% 
+%% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Change log:
+%% 
+%% 
+%% RCS $Log$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Code:
+
+\chapter{Conclusion}
+\label{cha:conclusion}
+In conclusion, a combination of image processing algorithms and techniques were found to answer the problem description. The solution proved to be invariant to scale, perspective, and rotation, which consequently opens up to a wider area of application. \\
+
+\noindent During the research for the thesis, few papers were found with a similar problem description. A substantial amount of previous work has been done by others on edge detection and object identification, which made it possible to construct a good base for this work. \\
+
+\noindent Most of the papers found, dedicated to Image registration, were based on the registration of images picturing the same object but taken under varying conditions. However, the problem description of this thesis addressed the registration of different objects, but of the same type (an agar plate). Therefore, the characteristics of the problem made it necessary to find a more generally applicable approach. \\ 
+
+\noindent The collection of techniques described in this thesis should, besides processing an agar plate, apply to other types of objects as well. Hopefully, it could add some improvement when used in, e.g., bacteria classification or other areas.
+
+\section{Future work}
+Future work for this thesis could be as follows: 
+\begin{enumerate}
+    \item Improving Canny, or finding other methods, that could mask bacteria clusters would improve the accuracy of identifying the compartment edges. 
+    \item An implementation to cope with the elliptical projection distortion can be done, so that no more than one iteration of the whole process is needed. 
+    \item Improve the accuracy of Canny and Border Following when detecting the outer edge of an agar plate. Improving the accuracy will remove the need for RANSAC thus, improving the computational speed. 
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% lorem.tex ends here
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "demothesis"
+%%% End: 
