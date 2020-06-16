@@ -1,26 +1,21 @@
 \chapter{Introduction}
-Mastitis is the most common disease among cows in dairy farms in Sweden\footnote{\url{http://intervacc.se/forskning-utveckling/projekt/novel-antigen/om-s-aureus/}}. Aside from great suffering for the animals, mastitis is very costly for agriculture and contributes to the use of antibiotics. As an example, the cost per mastitis in Sweden approximates to be over 3300 SEK due to treatment cost and reduced milk production. Furthermore, there are approximately 380 000 milk cows in Sweden, and 75 000 of these cows are treated annually with antibiotics due to mastitis. Mastitis is caused by, in most cases, bacterial infection, and it is therefore important to get a diagnosis as soon as possible to know what kind of bacteria it is. \\ 
+Mastitis is the most common disease among cows in dairy farms in Sweden\footnote{\url{http://intervacc.se/forskning-utveckling/projekt/novel-antigen/om-s-aureus/}}. Aside from great suffering for the animals, mastitis is very costly for the agriculture and contributes to the overuse of antibiotics. As an example, the cost per mastitis case in Sweden approximates to be over 3300 SEK due to treatment cost and reduced milk production. Furthermore, there are approximately 380 000 milk cows in Sweden, and 75 000 of these cows are treated annually with antibiotics due to mastitis. Mastitis is caused by, in most cases, a bacterial infection, and it is therefore important to get a diagnosis as soon as possible to know what kind of bacteria it is. \\ 
 
-\noindent Today, most cases of mastitis are diagnosed by licensed veterinarians or specially trained laboratory technicians\footnote{\url{http://www.juverportalen.se/media/1176/mastitdiagnostik-naer-var-hur.pdf}} who analyze bacteria growth on agar plates. However, this is both time-consuming and expensive for the farmer. \\
+\noindent Today, most cases of mastitis are diagnosed by licensed veterinarians or specially trained laboratory technicians\footnote{\url{http://www.juverportalen.se/media/1176/mastitdiagnostik-naer-var-hur.pdf}} who analyze bacteria growth on agar plates. This is both time-consuming and expensive for the farmer. \\
 
-\noindent Bacteria classifiers are currently in development to automate the whole process by analyzing images of agar plates. However, the classification today is dependent on the conditions and quality of the image. A too large difference between the images may result in faulty diagnostics. The input images, therefore, need to be properly pre-processed using image processing to address any variety in scale, positioning, perspective, illumination, and noisy backgrounds.  
+\noindent Bacteria classifiers are currently in development to automate the whole process by analyzing images of agar plates. The classification today is dependent on the conditions and quality of the image. A too large difference between the images may result in faulty diagnostics. The input images, therefore, need to be properly pre-processed using image processing to address any variety in scale, positioning, perspective, illumination, and noisy backgrounds.  
 
 %If a cow is suspected of carrying the infection, a milk sample is sent to a bacteriological laboratory for examination.  The complexity of the diagnosis process makes it less likely that the farmer will identify the infection in an early stage, thus increasing the chance of clinical mastitis.
 
 \section{Motivation}
 Agricam is an IT-company located in Linköping who develops products and services adapted for dairy farmers. The company aims to streamline and digitalize animal health work. They are currently developing a bacteria classifier to automatically identify mastitis bacteria in milk samples from Swedish dairy farms. \\
 
-\noindent Bacteria samples for mastitis are usually collected from each teat of an udder. The agar plate for this type of bacteria growth is thereby divided into four compartments. Each compartment corresponds to a specific quadrant of the udder, which helps to localize the infection. \\
+\noindent When growing bacteria, a milk sample is applied to four different compartments of an agar plate. Each compartment contains a different growth medium to maintain a higher diagnostic accuracy. \\
 
-\noindent The rotation of the agar plate is thus of great importance to not confuse any sample with the wrong part of the udder. To distinguish between the compartments, the agar in each compartment has different colors. Which color corresponds to what udder part, however, are not identified by the classifier.\\
+\noindent The rotation of the agar plate is thus of great importance to not confuse any sample with the wrong compartment. Each growth medium has different colors, which helps to distinguish the compartments. Which color corresponds to what growth medium, however, are not identified by the classifier.\\
+
 
 \noindent Therefore, each sample image needs to be pre-processed to ensure correct rotation. Variety in scale, position, perspective, and illumination may also affect the diagnosis. So by defining a model in terms of previously mentioned factors, each image can be processed to fit the model, consequentially leading to correct rotation and higher diagnostic accuracy.
-
-%\noindent For an optimized bacteria classification, the agar plate must be positioned correctly in every picture. A correct position also applies to the rotation of agar plates with its compartments. \\
-
-%\noindent Previous work on automated bacteria detection exists. \cite{Minoi} states that without proper image pre-processing, a bacteria classifier may only be reliable under controlled environments. 
-
-%Therefore, to make a bacteria classifier more reliable in uncontrolled environments, each input needs to be pre-processed considering the variety in scale, positioning, lighting, perspective, and noisy backgrounds.
 
 \section{Aim of the work}
 This thesis aims to investigate if a combination of image processing techniques can pre-process images of agar plates to be positioned correctly despite variations in scale, positioning, lighting, perspective and noisy backgrounds. 
@@ -34,24 +29,17 @@ This thesis aims to investigate if a combination of image processing techniques 
 \end{enumerate}
 \textbf{Criteria:} 
 \begin{enumerate}
-    \item The outer edge of the agar plate shall be identified. The compartment edges shall be identified as well. 
+    \item The outer edge of the agar plate, as well as the compartment edges shall be identified. 
     \item Pixels outside the agar plate should be masked to remove background noise.
     \item Depending on the angle, rotation, position, and scale, the image should be adjusted to match a reference picture.
 \end{enumerate}
 
-%This thesis aims to investigate if an combination of image processing techniques can optimize 
-%This thesis aims to investigate if an combination of image processing techniques can optimize the input images for Agricams bacteria classifier. The agar plate should be position correctly despite, the rotation, perspective, angle and scale to begin with. 
-%\noindent To solve these problems and to improve the bacteria classifier's output, this thesis will i§nvestigate how to optimize the input images using different image processing techniques.
-
-%This thesis aims to investigate if an combination of image
-
-%Though the current solution of the bacteria classifier is based on a controlled environment using the customized stand. The thesis aims to find an approach that is not only optimized for these conditions but to improve the reliability even in uncontrolled environments.
 
 \section{Limitations}
 The following limitations have been taken during the work: 
 \begin{enumerate}
     \item Images used should be with high enough resolution and quality to distinguish each bacteria cluster. Correction of image deviations may also be limited to the extent that the image quality needs to be good enough for the classifier. Too extreme variations may, therefore, be dismissed. 
-    %The classifiers limit the definition of an uncontrolled environment; in this case, the need for images with high enough resolution to distinguish each bacteria cluster. Correction of image deviations may also be limited to the extent that the image quality needs to be good enough for the classifier. Too extreme variations may, therefore, be dismissed.
+
 \end{enumerate}
 
 
